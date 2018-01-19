@@ -7,6 +7,7 @@ function IF_ROOT() #you root ?
     fi
 }
 
+
 function PRE_INST()
 {
     if [ -d $WORK_DIR ]; then
@@ -154,6 +155,7 @@ function POST_BUILD()
     IF_DIR $OUTPUT_ISO_FILE
     sudo cp -v -p $OUTPUT_ISO/$OUTPUT_ISO_NAME $OUTPUT_ISO_FILE
     IF_FILE $OUTPUT_ISO_FILE/$OUTPUT_ISO_NAME
+    sudo rm -rf $WORK_DIR
 }
 
 
