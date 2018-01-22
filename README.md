@@ -21,4 +21,14 @@ To start, use:
 
 # Tested on ubuntu 16.04!!!!
 
+You can also use the following parameters at startup:
+
+sudo bash start.sh [The URL from which the file system will be loaded] [the path where the destination image will be saved]
+
+eg:
+
+sudo bash start.sh http://archive.ubuntu.com/ubuntu/ /home/user/build
+
+
+
 ################################################

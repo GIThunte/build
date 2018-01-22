@@ -85,7 +85,7 @@ function CREATE_DIR() #func create dir
 function DOWN_FS()
 {
     tree $WORK_DIR
-    sudo debootstrap --arch=$UBUNTU_ARCH $UBUNTU_REL $DOWN_BASE $UBUNTU_URL
+    sudo debootstrap --arch=$UBUNTU_ARCH $UBUNTU_REL $DOWN_BASE $1
     IF_DIR $CHROOT_SCRIPT_DEST
     IF_FILE $CHROOT_SCRIPT
     sudo cp -v -p $CHROOT_SCRIPT $CHROOT_SCRIPT_DEST
@@ -153,7 +153,7 @@ function POST_BUILD()
 {
     IF_FILE $OUTPUT_ISO/$OUTPUT_ISO_NAME
     IF_DIR $OUTPUT_ISO_FILE
-    sudo cp -v -p $OUTPUT_ISO/$OUTPUT_ISO_NAME $OUTPUT_ISO_FILE
+    sudo cp -v -p $OUTPUT_ISO/$OUTPUT_ISO_NAME $1
     IF_FILE $OUTPUT_ISO_FILE/$OUTPUT_ISO_NAME
     sudo rm -rf $WORK_DIR
 }
