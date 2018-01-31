@@ -1,5 +1,8 @@
-source ./base_img.conf
-source ./base_img.sh
+#!/bin/bash
+DIR=$(dirname $(readlink -f $0))
+source $DIR/base_img.conf
+source $DIR/base_img.sh
+
 
 function START_MSG()
 {
@@ -45,7 +48,6 @@ function TIMER()
 
 function PRE()
 {
-    cd $PWD
     TIMER &
     TIMER_ID=$!
     START_MSG
