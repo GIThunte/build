@@ -45,6 +45,7 @@ function TIMER()
 
 function PRE()
 {
+    cd $PWD
     TIMER &
     TIMER_ID=$!
     START_MSG
