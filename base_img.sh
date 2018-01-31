@@ -14,7 +14,6 @@ function IF_ROOT() #you root ?
 function PRE_INST()
 {
     if [ -d $WORK_DIR ]; then
-        echo -e "$MSG_EXT_FOLDER\n$MSG_EXT_FOLDER_1"
         read -p "$MSG_IF_FO" answer
         case ${answer:0:1} in
             y|Y )
