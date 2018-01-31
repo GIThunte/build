@@ -48,6 +48,7 @@ function TIMER()
 
 function PRE()
 {
+
     TIMER &
     TIMER_ID=$!
     START_MSG

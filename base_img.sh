@@ -90,7 +90,7 @@ function DOWN_FS()
     sudo debootstrap --arch=$UBUNTU_ARCH $UBUNTU_REL $DOWN_BASE $1
     IF_DIR $CHROOT_SCRIPT_DEST
     IF_FILE $CHROOT_SCRIPT
-    sudo cp -v -p $CHROOT_SCRIPT $CHROOT_SCRIPT_DEST
+    sudo cp -v -p $DIR/$CHROOT_SCRIPT $CHROOT_SCRIPT_DEST
     IF_FILE $CHROOT_SCRIPT_DEST/$CHROOT_SCRIPT
     sudo chmod +x $CHROOT_SCRIPT_DEST/$CHROOT_SCRIPT
     sudo chroot $DOWN_BASE $END_PATH_SCRIPT
@@ -115,8 +115,8 @@ function CREATE_CASPER_DIR()
 
 function CREATE_ISOLINUX_DIR()
 {
-    for CREATE_ISO_LINUX in `ls $DIR_FILES | xargs -n1`; do
-        sudo cp -v -r -p $DIR_FILES/$CREATE_ISO_LINUX $ISOLINUX_DIR/$CREATE_ISO_LINUX
+    for CREATE_ISO_LINUX in `ls $DIR/$DIR_FILES | xargs -n1`; do
+        sudo cp -v -r -p $DIR/$DIR_FILES/$CREATE_ISO_LINUX $ISOLINUX_DIR/$CREATE_ISO_LINUX
         IF_FILE $ISOLINUX_DIR/$CREATE_ISO_LINUX
     done
 }
