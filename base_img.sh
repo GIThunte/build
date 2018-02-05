@@ -39,32 +39,29 @@ function COMMON()
 }
 function IF_FILE()
 {
-    for EXT_FILES in $@; do
-        echo "$MSG_TEST_FILE: $EXT_FILES"
-        test -e $EXT_FILES
-        if [[ "$?" == "0" ]]; then
-            echo "+"
-        else
-            echo "$MSG_ERR_FILE: $EXT_FILES"
-            exit 1
-        fi
-        
-    done
+    for FILE_EX in $@; do
+       echo -ne "$MSG_CHECK_FILE \033[33m $FILE_EX \033[0m"
+       if [[ -f $FILE_EX ]]; then
+          echo -e " $MSG_OK_STATUS"
+       else
+          echo -e " $MSG_NO_EX"
+          exit 1
+       fi
+   done
+
 }
 
 function IF_DIR()
 {
-    for EXT_DIRECTORY in $@; do
-        echo "$MSG_TEST_FILE: $EXT_DIRECTORY"
-        test -d $EXT_DIRECTORY
-        if [[ "$?" == "0" ]]; then
-            echo "+"
-        else
-            echo "$MSG_ERR_DIR: $EXT_DIRECTORY"
-            exit 1
-        fi
-        
-    done
+    for D_EX in $@; do
+       echo -ne "$MSG_CHECK_DIR \033[33m $D_EX \033[0m"
+       if [[ -d $D_EX ]]; then
+          echo -e " $MSG_OK_STATUS"
+       else
+          echo -e " $MSG_NO_DIR"
+          exit 1
+       fi
+   done
 }
 
 function CREATE_DIR() #func create dir
