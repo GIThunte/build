@@ -90,7 +90,25 @@ function DOWN_FS()
     sudo cp -v -p $DIR/$CHROOT_SCRIPT $CHROOT_SCRIPT_DEST
     IF_FILE $CHROOT_SCRIPT_DEST/$CHROOT_SCRIPT
     sudo chmod +x $CHROOT_SCRIPT_DEST/$CHROOT_SCRIPT
+
+    #copy cpuinfo file or sources list file 
+    IF_FILE $CPU_INFO_FILE 
+    sudo cp -v -p $CPU_INFO_FILE $CPU_INFO_DFILE  
+    IF_FILE $CPU_INFO_DFILE
+    IF_FILE $SOURCES_LIST
+    sudo cp -v -p $SOURCES_LIST $SOURCES_DLIST
+    IF_FILE $SOURCES_DLIST    
+
     sudo chroot $DOWN_BASE $END_PATH_SCRIPT
+    #create
+    IF_FILE $DOWN_BASE/boot/vmlinuz-4.4.0-98-generic
+    sudo cp -v -u $DOWN_BASE/boot/vmlinuz-4.4.0-98-generic $PATH_FTP/$VMLINUZ_NAME
+    IF_FILE /srv/ftp/$VMLINUZ_NAME
+    sudo cp -v -u $DOWN_BASE/boot/initrd.img-4.4.0-98-generic $PATH_FTP/$INITRD_NAME
+    IF_FILE $PATH_FTP/$INITRD_NAME
+    sudo chmod 644 $PATH_FTP/$VMLINUZ_NAME
+    sudo chmod 644 $PATH_FTP/$INITRD_NAME
+
 }
 
 function MAKE_FS()
