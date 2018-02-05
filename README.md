@@ -1,8 +1,6 @@
 # The first thing to do is read the file base_img.conf. In this file you should be interested in the following lines:
 
 
-INITRD_URL="ftp://zos-ftp.com/initrd.gz" : The address from which will be uploaded initrd.gz ;
-VMLINUZ_URL="ftp://zos-ftp.com/vmlinuz"  : The address from which will be uploaded vmlinuz ;
 OUTPUT_FOLDER="/srv" : Image save directory ;
 OUTPUT_ISO_FILE="$OUTPUT_FOLDER/BUILD" : The iso image ;
 
