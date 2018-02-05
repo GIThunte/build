@@ -101,10 +101,10 @@ function DOWN_FS()
 
     sudo chroot $DOWN_BASE $END_PATH_SCRIPT
     #create
-    IF_FILE $DOWN_BASE/boot/vmlinuz-4.4.0-98-generic
-    sudo cp -v -u $DOWN_BASE/boot/vmlinuz-4.4.0-98-generic $PATH_FTP/$VMLINUZ_NAME
+    IF_FILE $DOWN_BASE/boot/vmlinuz-$IMAGE_NVER-generic
+    sudo cp -v -u $DOWN_BASE/boot/vmlinuz-$IMAGE_NVER-generic $PATH_FTP/$VMLINUZ_NAME
     IF_FILE /srv/ftp/$VMLINUZ_NAME
-    sudo cp -v -u $DOWN_BASE/boot/initrd.img-4.4.0-98-generic $PATH_FTP/$INITRD_NAME
+    sudo cp -v -u $DOWN_BASE/boot/initrd.img-$IMAGE_NVER-generic $PATH_FTP/$INITRD_NAME
     IF_FILE $PATH_FTP/$INITRD_NAME
     sudo chmod 644 $PATH_FTP/$VMLINUZ_NAME
     sudo chmod 644 $PATH_FTP/$INITRD_NAME
